@@ -7,6 +7,24 @@ import { Button } from './Styles'
 export const ScrollButton = () => {
   const [visible, setVisible] = useState(false)
 
+
+  useEffect(() => {
+    const toggleVisible = () => {
+      console.log(1);
+      const scrolled = document.documentElement.scrollTop;
+      if (scrolled > 300) {
+        setVisible(true)
+      } else if (scrolled <= 300) {
+        setVisible(false)
+      }
+    };
+    window.addEventListener('scroll', toggleVisible);
+    return () => {
+      window.removeEventListener('scroll', toggleVisible)
+    }
+  })
+
+  /*
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
@@ -17,7 +35,7 @@ export const ScrollButton = () => {
     });
   }, [])
 
-  /*
+  
   --Old version of button
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
@@ -39,8 +57,9 @@ export const ScrollButton = () => {
 
   return(
     <Button>
-      {visible &&
-      <FontAwesomeIcon icon={faArrowCircleUp} onClick={scrollToTop}/> }
+      <FontAwesomeIcon icon={faArrowCircleUp} onClick={scrollToTop}
+      style={{ display: visible ? "inline" : "none", position: "fixed" }}
+      />
     </Button>
   )
 }
