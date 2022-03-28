@@ -7,7 +7,7 @@ import { Button } from './Styles'
 export const ScrollButton = () => {
   const [visible, setVisible] = useState(false)
 
-
+  //use useEffect to show a button to move to the top when clicked.
   useEffect(() => {
     const toggleVisible = () => {
       console.log(1);
@@ -24,36 +24,13 @@ export const ScrollButton = () => {
     }
   })
 
-  /*
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
-        setVisible(true)
-      } else {
-        setVisible(false)
-      }
-    });
-  }, [])
-
-  
-  --Old version of button
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300) {
-      setVisible(true)
-    } else if (scrolled <= 300) {
-      setVisible(false)
-    }
-  }
-*/
+  //The behavior of the button when clicked
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     })
   }
-
-  //window.addEventListener('scroll', toggleVisible) --old method
 
   return(
     <Button>
