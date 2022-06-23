@@ -9,7 +9,7 @@ export const Contact = () => {
         <h2>let's connect</h2>
         <div className="contact-content">
           <h3>Hire me</h3>
-          <p><a href="mailto:jacob.coding117@gmail.com">Email Me</a></p>
+          <p><a href="mailto:jacob.moe@moesmanor.com">Email Me</a></p>
         </div>
         <div className="contact-content">
           <h3>Follow me</h3>
